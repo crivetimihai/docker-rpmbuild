@@ -1,0 +1,16 @@
+---
+version: '3'
+services:
+
+  # CentOS 7
+  centos7:
+    image: cmihai/rpmbuild:centos7
+    container_name: 'rpmbuild_centos7'
+    hostname: rpmbuildcentos7
+    restart: 'always'
+    build: os/centos-7
+    env_file:
+      - ./config/centos7.env
+    volumes:
+      - "./rpmbuild/build.sh:/build.sh"
+      - "./rpmbuild/centos7:/home/builder/rpmbuild:rw"
