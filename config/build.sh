@@ -7,6 +7,7 @@ create_rpmtree() {
 
 build_rpm() {
   REPO=$1
+  SPEC=$2
 
   # Clone git repo
   git clone $REPO ~/repo
@@ -15,17 +16,14 @@ build_rpm() {
   rm -rf ~/repo
 
   # Install deps
-  sudo yum-builddep -y ~/rpmbuild/SPECS/*.spec
+  sudo yum-builddep -y ${SPEC}
 
   # Download sources
-  spectool -g -R ~/rpmbuild/SPECS/*.spec
+  spectool -g -R ${SPEC}
 
   # Build
-  rpmbuild -bb ~/rpmbuild/SPECS/*.spec
-
-  # Cleanup
-  rm ~/rpmbuild/SPECS/*
+  rpmbuild -bb ${SPEC}
 }
 
 create_rpmtree
-build_rpm ${REPO}
+build_rpm ${REPO} ${SPEC}
