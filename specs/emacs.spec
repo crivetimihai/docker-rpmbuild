@@ -62,7 +62,7 @@ BuildRequires: desktop-file-utils
 BuildRequires: libacl-devel
 
 BuildRequires: gtk3-devel
-BuildRequires: webkitgtk3-devel
+BuildRequires: webkitgtk4-devel
 
 # For lucid
 BuildRequires: Xaw3d-devel
