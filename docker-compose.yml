@@ -12,5 +12,5 @@ services:
     env_file:
       - ./config/centos7.env
     volumes:
-      - "./rpmbuild/build.sh:/build.sh"
+      - "./config/build.sh:/build.sh"
       - "./rpmbuild/centos7:/home/builder/rpmbuild:rw"

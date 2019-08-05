@@ -1,4 +1,4 @@
-FROM centos:7
+FROM fedora:30
 
 RUN yum install -y gcc gcc-c++ \
                    libtool libtool-ltdl \
@@ -16,6 +16,6 @@ RUN useradd builder -u 1000 -m -G users,wheel && \
     && chown -R builder /home/builder
 USER builder
 
-ENV FLAVOR=rpmbuild OS=centos DIST=el7
+ENV FLAVOR=rpmbuild OS=fedora DIST=30
 CMD /build.sh
 
